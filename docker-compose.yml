@@ -1,0 +1,22 @@
+version: '3.5'
+
+services:
+
+  db:
+     image: postgres 
+     enviroment: 
+      POSTGRES_PASSWORD: test
+  
+  bot:
+    image: trigun117/wikipedia-telegram-bot
+    enviroment: 
+      CREATE_TABLE: "yes"
+      DB_SWITCH: "on"
+      TOKEN:
+      HOST: db
+      PORT: 5432
+      USER: postgres
+      PASSWORD: test
+      DBNAME: postgres
+      SSLMODE: disable
+      
